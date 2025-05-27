@@ -1,0 +1,35 @@
+<div class="p-4 max-w-xl mx-auto">
+  <h2 class="text-xl font-bold mb-4">{{ isEdit ? "Edit Job" : "Add Job" }}</h2>
+  <form (ngSubmit)="saveJob()" class="space-y-4">
+    <input
+      [(ngModel)]="job.company"
+      name="company"
+      placeholder="Company"
+      class="border p-2 w-full"
+      required
+    />
+    <input
+      [(ngModel)]="job.position"
+      name="position"
+      placeholder="Position"
+      class="border p-2 w-full"
+      required
+    />
+    <select [(ngModel)]="job.status" name="status" class="border p-2 w-full">
+      <option value="applied">Applied</option>
+      <option value="interview">Interview</option>
+      <option value="offer">Offer</option>
+      <option value="rejected">Rejected</option>
+    </select>
+    <input
+      [(ngModel)]="job.date"
+      name="date"
+      type="date"
+      class="border p-2 w-full"
+      required
+    />
+    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">
+      {{ isEdit ? "Update" : "Add" }} Job
+    </button>
+  </form>
+</div>
